@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Navbar from "@/app/components/common/header/navbar";
 import { Inter, Roboto } from "next/font/google";
+import AppBar from "@/app/components/common/header/appbar";
 
 const roboto = Roboto({
   subsets: ["cyrillic"],
@@ -20,9 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={`${roboto.className} relative`}>
         <Navbar />
         {children}
+        <div className="fixed z-20 bottom-0 md:hidden">
+          <AppBar />
+        </div>
       </body>
     </html>
   );

@@ -27,8 +27,9 @@ const CategoryCard: React.FC<categoryCardProps> = ({
       <button>{iconComponent}</button>
       <p
         className={`text-sm capitalize ${
-          indexs === categoryIndex && `border-b-2 border-pale-orange pb-2`
-        } `}
+          indexs === categoryIndex &&
+          `border-b-2 border-pale-orange pb-2 text-pale-orange`
+        } pb-2 `}
       >
         {categoryName}
       </p>
