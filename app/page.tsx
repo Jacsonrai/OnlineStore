@@ -1,9 +1,5 @@
-import Image from "next/image";
-
+import HomeLayout from "@/app/components/layout/home/homeLayout";
+import { categoryData } from "@/app/mockData/index";
 export default function Home() {
-  return (
-    <main>
-      <h4>i am app</h4>
-    </main>
-  );
+  return <HomeLayout categoryData={categoryData} />;
 }
