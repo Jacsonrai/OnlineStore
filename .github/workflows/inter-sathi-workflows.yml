@@ -21,3 +21,24 @@ jobs:
         run: npm install
       - name: Run ESLint
         run: npm run lint
+
+  build-deploy:
+    needs: Lint
+    name: build-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: setup node enviroment
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{env.NODE_VERSION}}
+      - name: Install Dependencies
+        run: npm install
+      - name: Run Build
+        run: npm run build
+      - name: Netlify Deploy
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: netlify deploy --prod
