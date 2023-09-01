@@ -1,2 +1,3 @@
 import CategoryCard from "./categoryCard/categoryCard";
-export { CategoryCard };
+import ProductCard from "./productCard/productCard";
+export { CategoryCard, ProductCard };
