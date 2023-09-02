@@ -9,3 +9,7 @@ export const getAllProduct = async () => {
   const response = await BaseApi.get(endpoints.getAllProduct);
   return response;
 };
+export const getProductDetails = async (id: number) => {
+  const response = await BaseApi.get(`${endpoints.getSingleProduct}${id}`);
+  return response;
+};

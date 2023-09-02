@@ -1,18 +1,21 @@
 import React from "react";
 import { SearchIcon, CartIcon } from "@/app/components/shared/icons";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
     <div className="flex shadow pb-2 justify-between pr-4 pl-4 md:pr-2 md:pl-2 xl:pl-32 xl:pr-32 pt-4 items-center">
       <div>
-        <span className="flex items-center gap-1">
-          <h4 className="md:text-5xl text-3xl font-medium capitalize text-pale-orange">
-            OS
-          </h4>
-          <p className="text-pale-orange text-sm md:text-xl leading-relaxed capitalize">
-            online store
-          </p>
-        </span>
+        <Link href={"/"}>
+          <span className="flex items-center gap-1">
+            <h4 className="md:text-5xl text-3xl font-medium capitalize text-pale-orange">
+              OS
+            </h4>
+            <p className="text-pale-orange text-sm md:text-xl leading-relaxed capitalize">
+              online store
+            </p>
+          </span>
+        </Link>
       </div>
       <div className="w-1/2 hidden md:block">
         <div className=" flex items-center border-2 border-pale-gray w-full  rounded-lg p-1">

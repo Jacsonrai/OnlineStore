@@ -42,6 +42,7 @@ const HomeLayout = (props: any) => {
               each.category === categoryName && (
                 <div key={i}>
                   <ProductCard
+                    id={each.id}
                     image={each.image}
                     title={each.title}
                     price={each.price}
