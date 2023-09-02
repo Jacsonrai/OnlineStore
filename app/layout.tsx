@@ -1,8 +1,12 @@
+"use client";
 import "./globals.css";
 import type { Metadata } from "next";
 import Navbar from "@/app/components/common/header/navbar";
 import { Inter, Roboto } from "next/font/google";
 import AppBar from "@/app/components/common/header/appbar";
+import { QueryClient, QueryClientProvider } from "react-query";
+import store from "./store/store";
+import { Provider } from "react-redux";
 
 const roboto = Roboto({
   subsets: ["cyrillic"],
@@ -19,14 +23,19 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const queryClient = new QueryClient();
   return (
     <html lang="en">
       <body className={`${roboto.className} relative`}>
-        <Navbar />
-        {children}
-        <div className="fixed z-20 bottom-0 md:hidden">
-          <AppBar />
-        </div>
+        <Provider store={store}>
+          <QueryClientProvider client={queryClient}>
+            <Navbar />
+            {children}
+            <div className="fixed z-20 bottom-0 md:hidden">
+              <AppBar />
+            </div>
+          </QueryClientProvider>
+        </Provider>
       </body>
     </html>
   );

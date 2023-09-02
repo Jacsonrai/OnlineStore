@@ -22,7 +22,7 @@ const HomeLayout = (props: any) => {
                 <CategoryCard
                   indexs={i}
                   hanldeCategory={handleCategoryClick}
-                  categoryName={each.name}
+                  categoryName={each}
                   iconComponent={each.icon}
                   categoryIndex={categoryIndex}
                 />
@@ -31,7 +31,7 @@ const HomeLayout = (props: any) => {
         </div>
       </div>
 
-      <div className="mt-6 flex gap-10 md:gap-10 lg:gap-5 xl:gap-8 flex-wrap justify-center md:pl-6 pb-6">
+      <div className="mt-6 flex gap-10 md:gap-10 lg:gap-5 xl:gap-8 flex-wrap justify-center md:pl-6 lg:pl-0 pb-6">
         <ProductCard />
         <ProductCard />
         <ProductCard />
