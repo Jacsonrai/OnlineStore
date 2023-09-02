@@ -1,6 +1,6 @@
 "use client";
 import React, { ReactNode } from "react";
-import { SearchIcon } from "@/app/components/shared/icons";
+import { SearchIcon, LoginIcon, CartIcon } from "@/app/components/shared/icons";
 type categoryCardProps = {
   iconComponent: ReactNode;
   categoryName: string;
@@ -9,24 +9,26 @@ type categoryCardProps = {
   categoryIndex: any;
 };
 const CategoryCard: React.FC<categoryCardProps> = ({
-  iconComponent,
   categoryName,
   hanldeCategory,
   indexs,
   categoryIndex,
 }) => {
-  const hanldeClick = (data: string) => {
-    hanldeCategory(data);
+  const hanldeClick = (data: string, name: string) => {
+    hanldeCategory(data, name);
   };
 
   return (
     <div
-      onClick={() => hanldeClick(indexs)}
-      className="flex items-center flex-col min-w-[8rem]  cursor-pointer hover:text-pale-orange"
+      onClick={() => hanldeClick(indexs, categoryName)}
+      className="cursor-pointer hover:text-pale-orange text-center"
     >
-      <button>{iconComponent}</button>
+      {/* <button>
+        <SearchIcon height="30px" width="40" color="gray" />
+      </button> */}
+      {/* <CategoryIcon data={indexs} /> */}
       <p
-        className={`text-sm capitalize ${
+        className={`text-sm capitalize flex-grow-0 ${
           indexs === categoryIndex &&
           `border-b-2 border-pale-orange pb-2 text-pale-orange`
         } pb-2 `}
@@ -37,3 +39,22 @@ const CategoryCard: React.FC<categoryCardProps> = ({
   );
 };
 export default CategoryCard;
+
+// export const CategoryIcon = ({ data }: any) => {
+//   switch (data) {
+//     case 0:
+//       return <SearchIcon height="35px" width="30px" color="gray" />;
+//       break;
+//     case 1:
+//       return <CartIcon height="30px" width="30px" color="gray" />;
+//       break;
+//     case 2:
+//       return <LoginIcon height="30px" width="30px" color="gray" />;
+//       break;
+//     case 3:
+//       return <LoginIcon height="30px" width="30px" color="gray" />;
+//       break;
+//     default:
+//       <SearchIcon height="30px" width="30px" color="gray" />;
+//   }
+// };
