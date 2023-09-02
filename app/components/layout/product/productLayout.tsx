@@ -12,7 +12,7 @@ type productLayputProps = {
 const ProductLayout: React.FC<productLayputProps> = ({ productData }) => {
   return (
     <div className="lg:pl-32 lg:pr-32 p-2">
-      <div className="mt-1 flex justify-center gap-10 pb-20 shadow rounded-md flex-wrap p-10 md:grid md:grid-cols-2 xl:grid-cols-3 ">
+      <div className="mt-1 md:mt-10 flex shadow-slate-300  justify-center gap-10 pb-20 shadow rounded-md flex-wrap p-10 md:grid md:grid-cols-2 xl:grid-cols-3 ">
         <div className="">
           <figure className="text-whote ">
             <Image

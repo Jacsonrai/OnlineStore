@@ -1,8 +1,23 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { SearchIcon, CartIcon } from "@/app/components/shared/icons";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { searchSuccess } from "@/app/redux/search/searchSlice";
 
 const Navbar = () => {
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const [search, setSearch] = useState("");
+  const handleClick = () => {
+    if (search === "") {
+      router.push("/");
+    } else {
+      dispatch(searchSuccess(search));
+      router.push("/search");
+    }
+  };
   return (
     <div className="flex shadow pb-2 justify-between pr-4 pl-4 md:pr-2 md:pl-2 xl:pl-32 xl:pr-32 pt-4 items-center">
       <div>
@@ -19,8 +34,14 @@ const Navbar = () => {
       </div>
       <div className="w-1/2 hidden md:block">
         <div className=" flex items-center border-2 border-pale-gray w-full  rounded-lg p-1">
-          <input className="border-none outline-none text-lg text-pale-black  w-full  pl-2" />
-          <button className="hover:bg-light-orange rounded-lg">
+          <input
+            onChange={(e) => setSearch(e.target.value)}
+            className="border-none outline-none text-lg text-pale-black  w-full  pl-2"
+          />
+          <button
+            className="hover:bg-light-orange rounded-lg"
+            onClick={handleClick}
+          >
             <SearchIcon width="40px" height="40px" color="#FF385C" />
           </button>
         </div>

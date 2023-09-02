@@ -23,12 +23,8 @@ const CategoryCard: React.FC<categoryCardProps> = ({
       onClick={() => hanldeClick(indexs, categoryName)}
       className="cursor-pointer hover:text-pale-orange text-center"
     >
-      {/* <button>
-        <SearchIcon height="30px" width="40" color="gray" />
-      </button> */}
-      {/* <CategoryIcon data={indexs} /> */}
       <p
-        className={`text-sm capitalize flex-grow-0 ${
+        className={`text-sm capitalize inline-block whitespace-nowrap ${
           indexs === categoryIndex &&
           `border-b-2 border-pale-orange pb-2 text-pale-orange`
         } pb-2 `}
