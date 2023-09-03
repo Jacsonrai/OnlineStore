@@ -8,11 +8,11 @@ const SearchLayout = (props: any) => {
   const router = useRouter();
   //search state from redux
   const search = useSelector((state: any) => state.search.data);
-  useEffect(() => {
-    if (search.length <= 0) {
-      router.push("/");
-    }
-  }, [search, router]);
+  // useEffect(() => {
+  //   if (search.length <= 0) {
+  //     router.push("/");
+  //   }
+  // }, [search, router]);
   const [filterData, setFilterData] = useState<(string | number)[]>([]);
 
   useEffect(() => {
