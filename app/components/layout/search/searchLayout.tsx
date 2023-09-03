@@ -21,7 +21,7 @@ const SearchLayout = (props: any) => {
     search &&
       productData.length > 0 &&
       productData.filter((row: any) => {
-        if (row.title.toLowerCase().includes(search.toLowerCase())) {
+        if (row.title.toLowerCase().includes(search && search.toLowerCase())) {
           data.push(row);
         }
       });
