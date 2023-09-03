@@ -22,7 +22,7 @@ const CartLayout = (props: any) => {
             </thead>
             <tbody className="text-left ">
               {cartItem.length > 0 &&
-                cartItem.map((each: any, i) => (
+                cartItem.map((each: any, i: number) => (
                   <tr className="border-b border-pale-gray" key={i}>
                     <td className="p-2  flex items-center gap-2">
                       <CartFilterDetails ids={each.productId} type="details" />
@@ -38,7 +38,7 @@ const CartLayout = (props: any) => {
         </div>
         <div className="sm:hidden duration-300 ease-in-out">
           {cartItem.length > 0 &&
-            cartItem.map((each: any, i) => (
+            cartItem.map((each: any, i: number) => (
               <div
                 key={i}
                 className="flex items-center shadow gap-4 p-4 mt-2 ml-2 mr-2 mb-4"
