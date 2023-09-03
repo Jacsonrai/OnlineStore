@@ -76,9 +76,12 @@ const Navbar = () => {
       router.push("/");
     } else {
       dispatch(searchSuccess(search));
-      router.replace("/search", { scroll: false });
+      // router.replace("/search", { scroll: false });
     }
   };
+  useEffect(() => {
+    router.replace("/search", { scroll: false });
+  }, [search]);
   const handleOpenDrawer = () => {
     dispatch(drawerSuccess(true));
   };
