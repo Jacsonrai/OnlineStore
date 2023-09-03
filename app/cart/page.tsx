@@ -17,8 +17,8 @@ const Cart = () => {
   useEffect(() => {
     if (cartData) {
       dispatch(cartLoading(false));
-      cartData.data.length > 0 &&
-        cartData.data.filter((each) => {
+      cartData?.data.length > 0 &&
+        cartData?.data.filter((each) => {
           if (each.userId === 1) {
             dispatch(cartSuccess(each.products));
           }
