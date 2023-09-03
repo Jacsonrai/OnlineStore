@@ -10,7 +10,7 @@ const SearchLayout = (props: any) => {
   const search = useSelector((state: any) => state.search.data);
 
   const [filterData, setFilterData] = useState<(string | number)[]>([]);
-
+  console.log(search, "seacrch");
   useEffect(() => {
     let data: (string | number)[] = [];
     search &&
