@@ -11,3 +11,9 @@
 1. [reduxjs/toolkit](https://redux-toolkit.js.org/ "Redux tool kit")
 2. [react-loading-skeleton](https://www.npmjs.com/package/react-loading-skeleton "used for skeleton layout")
 3. [react-query](https://tanstack.com/query/v3/ "used for api fetching and cache")
+
+---
+
+#### Production App :
+
+Live site: [intership-online-store](https://main--intership-store.netlify.app/ "live site demo")
