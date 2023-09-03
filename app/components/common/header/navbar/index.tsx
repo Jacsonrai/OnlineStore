@@ -27,7 +27,6 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const cartProduct = useSelector((state: any) => state.cart.data);
   const [searchs, setSearch] = useState("");
-  console.log(searchs, "search");
 
   const { cartData, isLoading, isError }: CartData = useGetCartHooks();
 

@@ -8,7 +8,7 @@ const SearchLayout = (props: any) => {
   const search = searchParams.get("q");
 
   const [filterData, setFilterData] = useState<(string | number)[]>([]);
-
+  console.log(search, "q");
   useEffect(() => {
     let data: (string | number)[] = [];
     search &&
@@ -20,7 +20,7 @@ const SearchLayout = (props: any) => {
       });
 
     setFilterData(data);
-  }, [search]);
+  }, [search, productData]);
 
   return (
     <div className="lg:pl-32 lg:pr-32 pb-20 pl-4 pr-4">
