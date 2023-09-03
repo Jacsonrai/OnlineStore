@@ -48,7 +48,7 @@ const HomeLayout = (props: any) => {
         <div
           className={`${
             scrollHeight >= 20
-              ? `fixed pb-0 top-[55px] sm:top-0 flex gap-6 overflow-x-auto pt-4 sm:pl-0 shadow w-full bg-white ml-0 pl-2`
+              ? `fixed pb-0 top-[55px] sm:top-0 flex gap-6 overflow-x-auto pt-4 sm:pl-0 shadow w-full bg-white ml-0 pl-2 pr-2`
               : `pb-4 pt-4 sm:pl-6 pr-2 sm:ml-0 flex ml-6 gap-6 overflow-x-auto`
           }`}
         >
