@@ -8,6 +8,7 @@ const SearchLayout = (props: any) => {
   const router = useRouter();
   //search state from redux
   const search = useSelector((state: any) => state.search.data);
+
   // useEffect(() => {
   //   if (search.length <= 0) {
   //     router.push("/");
@@ -26,12 +27,12 @@ const SearchLayout = (props: any) => {
       });
 
     setFilterData(data);
-  }, [search, productData]);
+  }, [search]);
 
   return (
     <div className="lg:pl-32 lg:pr-32 pb-20 pl-4 pr-4">
       <div className="pt-6">
-        {search.length > 0 && (
+        {search && (
           <p className="text-lg">
             <b className="text-pale-orange">
               {filterData.length > 0 && filterData.length}
