@@ -26,7 +26,8 @@ const Navbar = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const cartProduct = useSelector((state: any) => state.cart.data);
-  const [search, setSearch] = useState("");
+  const [searchs, setSearch] = useState("");
+  console.log(searchs, "search");
 
   const { cartData, isLoading, isError }: CartData = useGetCartHooks();
 
@@ -72,16 +73,20 @@ const Navbar = () => {
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
 
-    if (search === "") {
+    if (searchs === "") {
       router.push("/");
     } else {
-      dispatch(searchSuccess(search));
+      dispatch(searchSuccess(searchs));
       // router.replace("/search", { scroll: false });
     }
   };
   useEffect(() => {
-    router.push("/search", { scroll: false });
-  }, [search]);
+    if (searchs === "") {
+      router.push("/");
+    } else {
+      router.replace("/search", { scroll: false });
+    }
+  }, [searchs]);
   const handleOpenDrawer = () => {
     dispatch(drawerSuccess(true));
   };
