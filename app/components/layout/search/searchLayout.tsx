@@ -1,27 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { ProductCard } from "@/app/components/shared/card";
 import { useSelector } from "react-redux";
-
+import { useSearchParams } from "next/navigation";
 const SearchLayout = (props: any) => {
   const { productData = [] } = props;
-
-  //search state from redux
-  const search = useSelector((state: any) => state.search.data);
+  const searchParams = useSearchParams();
+  const search = searchParams.get("q");
 
   const [filterData, setFilterData] = useState<(string | number)[]>([]);
-  console.log(search, "seacrch");
+
   useEffect(() => {
     let data: (string | number)[] = [];
     search &&
       productData.length > 0 &&
       productData.filter((row: any) => {
-        if (row.title.toLowerCase().includes(search && search.toLowerCase())) {
+        if (row.title.toLowerCase().includes(search.toLocaleLowerCase())) {
           data.push(row);
         }
       });
 
     setFilterData(data);
-  }, []);
+  }, [search]);
 
   return (
     <div className="lg:pl-32 lg:pr-32 pb-20 pl-4 pr-4">

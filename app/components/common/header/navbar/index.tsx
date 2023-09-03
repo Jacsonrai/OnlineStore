@@ -70,22 +70,11 @@ const Navbar = () => {
     }
   }, [dispatch, cartData, isLoading, isError]);
 
-  const handleClick = (e: React.MouseEvent) => {
+  const handleSubmit = (e: React.MouseEvent) => {
     e.preventDefault();
-
-    if (searchs === "") {
-      router.push("/");
-    } else {
-      dispatch(searchSuccess(searchs));
-      router.replace("/search", { scroll: false });
-    }
+    router.push(`/search?q=${searchs}`);
   };
-  // useEffect(() => {
-  //   if (searchs != "") {
-  //     dispatch(searchSuccess(searchs));
-  //     router.replace("/search", { scroll: false });
-  //   }
-  // }, [searchs]);
+
   const handleOpenDrawer = () => {
     dispatch(drawerSuccess(true));
   };
@@ -108,17 +97,24 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="w-1/2 hidden md:block">
-        <div className=" flex items-center border-2 border-pale-gray w-full  rounded-lg p-1">
-          <input
-            onChange={(e) => setSearch(e.target.value)}
-            className="border-none outline-none text-lg text-pale-black  w-full  pl-2"
-          />
-          <button
-            className="hover:bg-light-orange rounded-lg"
-            onClick={(e) => handleClick(e)}
+        <div>
+          <form
+            onSubmit={(e) => handleSubmit(e)}
+            className=" flex items-center border-2 border-pale-gray w-full  rounded-lg p-1"
           >
-            <SearchIcon width="40px" height="40px" color="#FF385C" />
-          </button>
+            <input
+              name="search"
+              onChange={(e) => setSearch(e.target.value)}
+              className="border-none outline-none text-lg text-pale-black  w-full  pl-2"
+            />
+            <button
+              className="hover:bg-light-orange rounded-lg"
+              // onClick={(e) => handleClick(e)}
+              type="submit"
+            >
+              <SearchIcon width="40px" height="40px" color="#FF385C" />
+            </button>
+          </form>
         </div>
       </div>
       <div className="flex items-center gap-2 md:gap-10">
