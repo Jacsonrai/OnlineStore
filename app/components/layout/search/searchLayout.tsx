@@ -17,7 +17,7 @@ const SearchLayout = (props: any) => {
 
   useEffect(() => {
     let data: (string | number)[] = [];
-    search.length > 0 &&
+    search &&
       productData.length > 0 &&
       productData.filter((row: any) => {
         if (row.title.toLowerCase().includes(search.toLowerCase())) {
