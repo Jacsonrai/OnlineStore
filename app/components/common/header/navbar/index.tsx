@@ -80,7 +80,7 @@ const Navbar = () => {
     }
   };
   useEffect(() => {
-    router.replace("/search", { scroll: false });
+    router.push("/search", { scroll: false });
   }, [search]);
   const handleOpenDrawer = () => {
     dispatch(drawerSuccess(true));
