@@ -69,8 +69,9 @@ const Navbar = () => {
     }
   }, [dispatch, cartData, isLoading, isError]);
 
-  const handleClick = (e: any) => {
+  const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
+    console.log(e);
     if (search === "") {
       router.push("/");
     } else {
