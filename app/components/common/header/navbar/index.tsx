@@ -70,20 +70,21 @@ const Navbar = () => {
     }
   }, [dispatch, cartData, isLoading, isError]);
 
-  const handleClick = (e: React.MouseEvent) => {
-    e.preventDefault();
+  // const handleClick = (e: React.MouseEvent) => {
+  //   e.preventDefault();
 
-    if (searchs === "") {
-      router.push("/");
-    } else {
-      dispatch(searchSuccess(searchs));
-      // router.replace("/search", { scroll: false });
-    }
-  };
+  //   if (searchs === "") {
+  //     router.push("/");
+  //   } else {
+  //     dispatch(searchSuccess(searchs));
+  //     // router.replace("/search", { scroll: false });
+  //   }
+  // };
   useEffect(() => {
     if (searchs === "") {
       router.push("/");
     } else {
+      dispatch(searchSuccess(searchs));
       router.replace("/search", { scroll: false });
     }
   }, [searchs]);
@@ -116,7 +117,7 @@ const Navbar = () => {
           />
           <button
             className="hover:bg-light-orange rounded-lg"
-            onClick={(e) => handleClick(e)}
+            // onClick={(e) => handleClick(e)}
           >
             <SearchIcon width="40px" height="40px" color="#FF385C" />
           </button>
