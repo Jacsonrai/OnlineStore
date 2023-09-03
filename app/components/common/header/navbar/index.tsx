@@ -71,7 +71,7 @@ const Navbar = () => {
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-
+    console.log(e);
     if (search === "") {
       router.push("/");
     } else {
@@ -106,14 +106,11 @@ const Navbar = () => {
             onChange={(e) => setSearch(e.target.value)}
             className="border-none outline-none text-lg text-pale-black  w-full  pl-2"
           />
-
           <button
             className="hover:bg-light-orange rounded-lg"
             onClick={(e) => handleClick(e)}
           >
-            <Link href={"/search"}>
-              <SearchIcon width="40px" height="40px" color="#FF385C" />
-            </Link>
+            <SearchIcon width="40px" height="40px" color="#FF385C" />
           </button>
         </div>
       </div>
@@ -130,9 +127,7 @@ const Navbar = () => {
           className="hover:bg-light-orange rounded-lg md:hidden"
           onClick={handleOpenDrawer}
         >
-          <Link href={"/search"}>
-            <SearchIcon width="40px" height="40px" color="#FF385C" />
-          </Link>
+          <SearchIcon width="40px" height="40px" color="#FF385C" />
         </button>
         <Link href={"/cart"}>
           <span className="flex">
