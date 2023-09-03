@@ -83,6 +83,7 @@ export default function Home() {
       categoryLoading={categoryLoadingState}
       categoryError={categoryErrorState}
       productData={product?.data}
+      prodcutLoading={productLoadingState}
     />
   );
 }

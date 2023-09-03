@@ -8,7 +8,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import store from "./store/store";
 import { Provider } from "react-redux";
 import Drawer from "@/app/components/shared/drawer";
-
+import "react-loading-skeleton/dist/skeleton.css";
 const roboto = Roboto({
   subsets: ["cyrillic"],
   weight: ["400", "100", "300", "500", "700", "900"],

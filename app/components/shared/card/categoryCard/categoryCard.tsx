@@ -35,22 +35,3 @@ const CategoryCard: React.FC<categoryCardProps> = ({
   );
 };
 export default CategoryCard;
-
-// export const CategoryIcon = ({ data }: any) => {
-//   switch (data) {
-//     case 0:
-//       return <SearchIcon height="35px" width="30px" color="gray" />;
-//       break;
-//     case 1:
-//       return <CartIcon height="30px" width="30px" color="gray" />;
-//       break;
-//     case 2:
-//       return <LoginIcon height="30px" width="30px" color="gray" />;
-//       break;
-//     case 3:
-//       return <LoginIcon height="30px" width="30px" color="gray" />;
-//       break;
-//     default:
-//       <SearchIcon height="30px" width="30px" color="gray" />;
-//   }
-// };
