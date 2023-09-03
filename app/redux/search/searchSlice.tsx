@@ -12,6 +12,7 @@ const searchSlice = createSlice({
   reducers: {
     searchSuccess: (state, action) => {
       state.data = action.payload;
+      localStorage.setItem("search", action.payload);
     },
     searchLoading: (state, action) => {
       state.loading = action.payload;
