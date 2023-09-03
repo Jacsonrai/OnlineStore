@@ -71,12 +71,12 @@ const Navbar = () => {
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    console.log(e);
+
     if (search === "") {
       router.push("/");
     } else {
       dispatch(searchSuccess(search));
-      router.push("/search", { scroll: false });
+      router.replace("/search", { scroll: false });
     }
   };
   const handleOpenDrawer = () => {
