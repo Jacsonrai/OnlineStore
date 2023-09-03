@@ -76,7 +76,7 @@ const Navbar = () => {
       router.push("/");
     } else {
       dispatch(searchSuccess(search));
-      // router.push("/search");
+      router.push("/search", { scroll: false });
     }
   };
   const handleOpenDrawer = () => {
