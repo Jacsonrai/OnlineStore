@@ -81,9 +81,7 @@ const Navbar = () => {
   //   }
   // };
   useEffect(() => {
-    if (searchs === "") {
-      router.push("/");
-    } else {
+    if (searchs != "") {
       dispatch(searchSuccess(searchs));
       router.replace("/search", { scroll: false });
     }
