@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 const SearchLayout = (props: any) => {
   const { productData = [] } = props;
-  const router = useRouter();
+
   //search state from redux
   const search = useSelector((state: any) => state.search.data);
 
