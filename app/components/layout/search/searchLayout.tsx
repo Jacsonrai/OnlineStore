@@ -27,7 +27,7 @@ const SearchLayout = (props: any) => {
       });
 
     setFilterData(data);
-  }, [search]);
+  }, [search, productData]);
 
   return (
     <div className="lg:pl-32 lg:pr-32 pb-20 pl-4 pr-4">
