@@ -40,16 +40,16 @@ const HomeLayout = (props: any) => {
     };
   }, []);
   return (
-    <main className="lg:pr-32 lg:pl-32">
+    <main className="xl:pr-32 xl:pl-32 md:pl-4 md:pr-4 ">
       <div className="mt-2 md:mt-6">
-        <h4 className="text-xl pl-4 capitalize sm:pl-2 tracking-wide font-semibold text-dark-black">
+        <h4 className="text-xl capitalize pl-4 tracking-wide font-semibold text-dark-black">
           categories
         </h4>
         <div
           className={`${
             scrollHeight >= 20 &&
-            "fixed pb-0 top-[55px] shadow w-full bg-white ml-0 pl-2"
-          } pb-4 pt-4 ml-6 sm:relative  sm:pl-2 pr-2 sm:ml-0 flex items-center gap-6 overflow-x-auto`}
+            "fixed pb-0 top-[55px] sm:top-0 sm:pl-0 shadow w-full bg-white ml-0 pl-2"
+          } pb-4 pt-4 ml-6  sm:pl-6 pr-2 sm:ml-0 flex items-center gap-6 overflow-x-auto`}
         >
           {categoryLoading ? (
             <CategoryCardSkeleton categoryLength={4} />

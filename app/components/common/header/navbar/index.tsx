@@ -73,7 +73,7 @@ const Navbar = () => {
     <div
       className={`flex ${
         scrollHeight >= 19 && "fixed top-0 bg-white w-full"
-      }  sm:relative shadow pb-2 justify-between pr-4 pl-4 md:pr-2 md:pl-2 xl:pl-32 xl:pr-32 pt-4 items-center`}
+      }  sm:relative shadow pb-2 justify-between pr-4 pl-4 md:pr-4 md:pl-4 xl:pl-32 xl:pr-32 pt-4 items-center`}
     >
       <div>
         <Link href={"/"}>
