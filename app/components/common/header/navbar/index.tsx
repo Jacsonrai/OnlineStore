@@ -1,17 +1,63 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SearchIcon, CartIcon } from "@/app/components/shared/icons";
 import Link from "next/link";
+import {
+  cartSuccess,
+  cartFailure,
+  cartLoading,
+} from "@/app/redux/cart/cartSlice";
 import { useRouter } from "next/navigation";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { searchSuccess } from "@/app/redux/search/searchSlice";
-
 import { drawerSuccess } from "@/app/redux/drawer/drawerSlice";
+import { useGetCartHooks } from "@/app/hooks/cartsHooks/useCartsHook";
 
 const Navbar = () => {
   const router = useRouter();
   const dispatch = useDispatch();
+  const cartProduct = useSelector((state: any) => state.cart.data);
   const [search, setSearch] = useState("");
+
+  const { cartData, isLoading, isError } = useGetCartHooks();
+  const [scrollHeight, setScrollHeight] = useState(0);
+
+  // Attach a scroll event listener when the component mounts
+  useEffect(() => {
+    const handleScroll = () => {
+      // Get the vertical scroll position of the window
+      const currentScrollHeight = window.scrollY;
+      setScrollHeight(currentScrollHeight);
+    };
+
+    // Attach the scroll event listener to the window
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  useEffect(() => {
+    if (cartData) {
+      dispatch(cartLoading(false));
+      cartData?.data.length > 0 &&
+        cartData?.data.filter((each) => {
+          if (each.userId === 1) {
+            dispatch(cartSuccess(each.products));
+          }
+        });
+    }
+    if (isLoading) {
+      dispatch(cartLoading(true));
+      dispatch(cartFailure(false));
+    }
+    if (isError) {
+      dispatch(cartLoading(false));
+      dispatch(cartFailure(isError));
+    }
+  }, [dispatch, cartData, isLoading, isError]);
+
   const handleClick = () => {
     if (search === "") {
       router.push("/");
@@ -24,7 +70,11 @@ const Navbar = () => {
     dispatch(drawerSuccess(true));
   };
   return (
-    <div className="flex shadow pb-2 justify-between pr-4 pl-4 md:pr-2 md:pl-2 xl:pl-32 xl:pr-32 pt-4 items-center">
+    <div
+      className={`flex ${
+        scrollHeight >= 19 && "fixed top-0 bg-white w-full"
+      }  sm:relative shadow pb-2 justify-between pr-4 pl-4 md:pr-2 md:pl-2 xl:pl-32 xl:pr-32 pt-4 items-center`}
+    >
       <div>
         <Link href={"/"}>
           <span className="flex items-center gap-1">
@@ -66,13 +116,17 @@ const Navbar = () => {
         >
           <SearchIcon width="40px" height="40px" color="#FF385C" />
         </button>
-        <span className="flex items-center gap-2">
-          <button>
-            <CartIcon height="30px" width="30px" color="#FF385C" />
-          </button>
+        <Link href={"/cart"}>
+          <span className="flex">
+            <button>
+              <CartIcon height="30px" width="30px" color="#FF385C" />
+            </button>
 
-          <p>0</p>
-        </span>
+            <p className="text-pale-orange text-lg font-semibold">
+              {cartProduct.length > 0 ? cartProduct.length : 0}
+            </p>
+          </span>
+        </Link>
       </div>
     </div>
   );

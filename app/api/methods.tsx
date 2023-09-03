@@ -13,3 +13,7 @@ export const getProductDetails = async (id: number) => {
   const response = await BaseApi.get(`${endpoints.getSingleProduct}${id}`);
   return response;
 };
+export const getAllCarts = async (id: number) => {
+  const response = await BaseApi.get(endpoints.getAllCarts);
+  return response;
+};
