@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { searchSuccess } from "@/app/redux/search/searchSlice";
 
+import { drawerSuccess } from "@/app/redux/drawer/drawerSlice";
+
 const Navbar = () => {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -17,6 +19,9 @@ const Navbar = () => {
       dispatch(searchSuccess(search));
       router.push("/search");
     }
+  };
+  const handleOpenDrawer = () => {
+    dispatch(drawerSuccess(true));
   };
   return (
     <div className="flex shadow pb-2 justify-between pr-4 pl-4 md:pr-2 md:pl-2 xl:pl-32 xl:pr-32 pt-4 items-center">
@@ -55,7 +60,10 @@ const Navbar = () => {
             sign up
           </h4>
         </span>
-        <button className="hover:bg-light-orange rounded-lg md:hidden">
+        <button
+          className="hover:bg-light-orange rounded-lg md:hidden"
+          onClick={handleOpenDrawer}
+        >
           <SearchIcon width="40px" height="40px" color="#FF385C" />
         </button>
         <span className="flex items-center gap-2">

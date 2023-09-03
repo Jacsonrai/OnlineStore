@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { ProductCard } from "@/app/components/shared/card";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
-import { data } from "autoprefixer";
 
 const SearchLayout = (props: any) => {
   const { productData = [] } = props;
@@ -13,7 +12,7 @@ const SearchLayout = (props: any) => {
     if (search.length <= 0) {
       router.push("/");
     }
-  }, []);
+  }, [search, router]);
   const [filterData, setFilterData] = useState([]);
 
   useEffect(() => {
@@ -28,15 +27,17 @@ const SearchLayout = (props: any) => {
       });
     setFilterData(data);
   }, [search, productData]);
-  console.log(filterData, "data");
 
   return (
-    <div className="lg:pl-32 lg:pr-32">
+    <div className="lg:pl-32 lg:pr-32 pb-20 pl-4 pr-4">
       <div className="pt-6">
         {search.length > 0 && (
           <p className="text-lg">
-            {filterData.length > 0 && filterData.length} Items found for &quot;
-            {search.toLowerCase()}
+            <b className="text-pale-orange">
+              {filterData.length > 0 && filterData.length}
+            </b>{" "}
+            Items found for &quot;
+            <b className="text-pale-orange">{search.toLowerCase()}</b>
             &quot;
           </p>
         )}

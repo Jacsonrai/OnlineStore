@@ -24,7 +24,7 @@ const CategoryCard: React.FC<categoryCardProps> = ({
       className="cursor-pointer hover:text-pale-orange text-center"
     >
       <p
-        className={`text-sm capitalize inline-block whitespace-nowrap ${
+        className={`text-sm capitalize whitespace-nowrap ${
           indexs === categoryIndex &&
           `border-b-2 border-pale-orange pb-2 text-pale-orange`
         } pb-2 `}

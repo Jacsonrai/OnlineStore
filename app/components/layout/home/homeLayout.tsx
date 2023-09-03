@@ -19,7 +19,7 @@ const HomeLayout = (props: any) => {
         <h4 className="text-xl pl-4 capitalize sm:pl-2 tracking-wide font-semibold text-dark-black">
           categories
         </h4>
-        <div className=" pb-4 pt-4 ml-6  sm:pl-2 pr-2 sm:ml-0 flex items-center gap-6 overflow-x-auto flex-nowrap">
+        <div className=" pb-4 pt-4 ml-6  sm:pl-2 pr-2 sm:ml-0 flex items-center gap-6 overflow-x-auto">
           {categoryData.length > 0 &&
             categoryData.map((each: any, i: number) => (
               <div key={i}>

@@ -1,4 +1,5 @@
 import SearchIcon from "./searchIcon";
 import CartIcon from "./cartIcon";
 import LoginIcon from "./loginIcon";
-export { SearchIcon, CartIcon, LoginIcon };
+import CrossIcon from "./crossIcon";
+export { SearchIcon, CartIcon, LoginIcon, CrossIcon };

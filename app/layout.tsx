@@ -7,6 +7,7 @@ import AppBar from "@/app/components/common/header/appbar";
 import { QueryClient, QueryClientProvider } from "react-query";
 import store from "./store/store";
 import { Provider } from "react-redux";
+import Drawer from "@/app/components/shared/drawer";
 
 const roboto = Roboto({
   subsets: ["cyrillic"],
@@ -34,6 +35,7 @@ export default function RootLayout({
             <div className="fixed z-20 bottom-0 md:hidden">
               <AppBar />
             </div>
+            <Drawer />
           </QueryClientProvider>
         </Provider>
       </body>
