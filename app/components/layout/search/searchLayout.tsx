@@ -38,7 +38,7 @@ const SearchLayout = (props: any) => {
               {filterData.length > 0 && filterData.length}
             </b>{" "}
             Items found for &quot;
-            <b className="text-pale-orange">{search.toLowerCase()}</b>
+            <b className="text-pale-orange">{search && search.toLowerCase()}</b>
             &quot;
           </p>
         )}
