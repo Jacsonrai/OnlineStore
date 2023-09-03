@@ -13,15 +13,25 @@ import { searchSuccess } from "@/app/redux/search/searchSlice";
 import { drawerSuccess } from "@/app/redux/drawer/drawerSlice";
 import { useGetCartHooks } from "@/app/hooks/cartsHooks/useCartsHook";
 
+// Define the type for the data inside cartData
+
+// Define the CartData interface
+interface CartData {
+  cartData: any;
+  isLoading: any;
+  isError: any;
+}
+
 const Navbar = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const cartProduct = useSelector((state: any) => state.cart.data);
   const [search, setSearch] = useState("");
 
-  const { cartData, isLoading, isError } = useGetCartHooks();
-  const [scrollHeight, setScrollHeight] = useState(0);
+  const { cartData, isLoading, isError }: CartData = useGetCartHooks();
 
+  const [scrollHeight, setScrollHeight] = useState(0);
+  console.log(cartData, "data");
   // Attach a scroll event listener when the component mounts
   useEffect(() => {
     const handleScroll = () => {
@@ -41,8 +51,9 @@ const Navbar = () => {
   useEffect(() => {
     if (cartData) {
       dispatch(cartLoading(false));
-      cartData?.data.length > 0 &&
-        cartData?.data.filter((each) => {
+
+      cartData.data.length > 0 &&
+        cartData.data.filter((each: any) => {
           if (each.userId === 1) {
             dispatch(cartSuccess(each.products));
           }
