@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ProductCard } from "@/app/components/shared/card";
 import { useSelector } from "react-redux";
-import { useRouter } from "next/navigation";
 
 const SearchLayout = (props: any) => {
   const { productData = [] } = props;
@@ -22,7 +21,7 @@ const SearchLayout = (props: any) => {
       });
 
     setFilterData(data);
-  }, [productData]);
+  }, []);
 
   return (
     <div className="lg:pl-32 lg:pr-32 pb-20 pl-4 pr-4">
