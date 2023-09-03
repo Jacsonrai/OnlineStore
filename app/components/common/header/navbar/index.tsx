@@ -69,7 +69,8 @@ const Navbar = () => {
     }
   }, [dispatch, cartData, isLoading, isError]);
 
-  const handleClick = () => {
+  const handleClick = (e: any) => {
+    e.preventDefault();
     if (search === "") {
       router.push("/");
     } else {
@@ -106,7 +107,7 @@ const Navbar = () => {
           />
           <button
             className="hover:bg-light-orange rounded-lg"
-            onClick={handleClick}
+            onClick={(e) => handleClick(e)}
           >
             <SearchIcon width="40px" height="40px" color="#FF385C" />
           </button>
