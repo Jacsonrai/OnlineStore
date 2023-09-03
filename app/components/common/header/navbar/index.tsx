@@ -70,7 +70,7 @@ const Navbar = () => {
     }
   }, [dispatch, cartData, isLoading, isError]);
 
-  const handleSubmit = (e: React.MouseEvent) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     router.push(`/search?q=${searchs}`);
   };

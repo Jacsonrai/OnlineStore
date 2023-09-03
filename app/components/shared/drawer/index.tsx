@@ -14,15 +14,10 @@ const Drawer = () => {
     dispatch(drawerClose(false));
   };
   const [search, setSearch] = useState("");
-  const handleClick = () => {
-    if (search === "") {
-      dispatch(drawerClose(false));
-      router.push("/");
-    } else {
-      dispatch(searchSuccess(search));
-      dispatch(drawerClose(false));
-      router.push("/search");
-    }
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    router.push(`/search?q=${search}`);
+    dispatch(drawerClose(false));
   };
   return (
     <div
@@ -41,21 +36,25 @@ const Drawer = () => {
           <CrossIcon height="30px" width="30px" color="#FF385C" />
         </button>
       </div>
-      <div
-        className={`flex items-center flex-col gap-3 justify-center pl-4 opacity-0 duration-200 ease-in-out ${
-          open && "opacity-100"
-        } pr-4 pt-2`}
-      >
-        <input
-          className="border text-lg p-2 outline-none w-full rounded-lg text-pale-black"
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        <button
-          className="bg-pale-orange uppercase text-white pt-2 pb-2 pl-8 pr-8 rounded"
-          onClick={handleClick}
+      <div>
+        <form
+          onSubmit={(e) => handleSubmit(e)}
+          className={`flex items-center flex-col gap-3 justify-center pl-4 opacity-0 duration-200 ease-in-out ${
+            open && "opacity-100"
+          } pr-4 pt-2`}
         >
-          Search
-        </button>
+          <input
+            name="search"
+            className="border text-lg p-2 outline-none w-full rounded-lg text-pale-black"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button
+            className="bg-pale-orange uppercase text-white pt-2 pb-2 pl-8 pr-8 rounded"
+            type="submit"
+          >
+            Search
+          </button>
+        </form>
       </div>
     </div>
   );
