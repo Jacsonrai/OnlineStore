@@ -13,10 +13,10 @@ const SearchLayout = (props: any) => {
       router.push("/");
     }
   }, [search, router]);
-  const [filterData, setFilterData] = useState([]);
+  const [filterData, setFilterData] = useState<(string | number)[]>([]);
 
   useEffect(() => {
-    let data: any[] = [];
+    let data: (string | number)[] = [];
     search.length > 0 &&
       productData.length > 0 &&
       productData.filter((row: any) => {
@@ -24,6 +24,7 @@ const SearchLayout = (props: any) => {
           data.push(row);
         }
       });
+    console.log(data, "dta");
     setFilterData(data);
   }, [search, productData]);
 
