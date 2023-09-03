@@ -31,7 +31,7 @@ const Navbar = () => {
   const { cartData, isLoading, isError }: CartData = useGetCartHooks();
 
   const [scrollHeight, setScrollHeight] = useState(0);
-  console.log(cartData, "data");
+
   // Attach a scroll event listener when the component mounts
   useEffect(() => {
     const handleScroll = () => {

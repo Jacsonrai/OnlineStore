@@ -24,7 +24,7 @@ const SearchLayout = (props: any) => {
           data.push(row);
         }
       });
-    console.log(data, "dta");
+
     setFilterData(data);
   }, [search, productData]);
 

@@ -70,29 +70,28 @@ const HomeLayout = (props: any) => {
           )}
         </div>
       </div>
-      {prodcutLoading ? (
-        <div className="mt-6 flex gap-10 md:gap-10 lg:gap-20  flex-wrap justify-center lg:justify-normal md:pl-6 lg:pl-0 pb-20">
+
+      <div className="mt-6 flex gap-10 md:gap-10 lg:gap-20  flex-wrap justify-center lg:justify-normal md:pl-6 lg:pl-0 pb-20">
+        {prodcutLoading ? (
           <ProductCardSkeleton prodcutLength={6} />
-        </div>
-      ) : (
-        <div className="mt-6 flex gap-10 md:gap-10 lg:gap-20  flex-wrap justify-center lg:justify-normal md:pl-6 lg:pl-0 pb-20">
-          {productData.length > 0 &&
-            productData.map(
-              (each: any, i: number) =>
-                each.category === categoryName && (
-                  <div key={i}>
-                    <ProductCard
-                      id={each.id}
-                      image={each.image}
-                      title={each.title}
-                      price={each.price}
-                    />
-                  </div>
-                )
-            )}
-          {/* <ProductCardSkeleton prodcutLength={2} /> */}
-        </div>
-      )}
+        ) : (
+          productData.length > 0 &&
+          productData.map(
+            (each: any, i: number) =>
+              each.category === categoryName && (
+                <div key={i}>
+                  <ProductCard
+                    id={each.id}
+                    image={each.image}
+                    title={each.title}
+                    price={each.price}
+                  />
+                </div>
+              )
+          )
+        )}
+        {/* <ProductCardSkeleton prodcutLength={2} /> */}
+      </div>
     </main>
   );
 };
